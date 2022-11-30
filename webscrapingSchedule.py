@@ -40,7 +40,6 @@ class schedule_scrapping:
             scheduleData = paragraphs[indexData+1].getText()
             #Se hace el procesamiento de los datos
             scheduleList = self.process_Data_Schedule(scheduleData)
-            print(scheduleList)
             #Se crea el archivo .json 
             with open(f'{self._data_dir}data_schedule_{self.formatDateTomorrowOutput}.json', 'w') as fd:
                 json_object = json.dumps(scheduleList, indent=4)
