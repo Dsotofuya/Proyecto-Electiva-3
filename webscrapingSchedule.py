@@ -11,6 +11,8 @@ class schedule_scrapping:
     tomorrow = (today + timedelta(days=1)).strftime("%A %B %d")
     #Se formatea el día de hoy a formato Día Mes númerodedía
     todayFormated = today.strftime("%A %B %d")
+    #Se hace un tratamiento especial para la fecha, ya que el formato de la página no tiene en cuenta el 
+    # 0 anterior a los numeros 1-9 
     tomorrowFormated = (today + timedelta(days=1)).strftime("%A %B X%d").replace('X0','X').replace('X','')
     #Se hace un formato Mes_dd_aaaa
     formatDateOutput = today.strftime("%b_%d_%Y")
