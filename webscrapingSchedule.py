@@ -11,8 +11,10 @@ class schedule_scrapping:
     tomorrow = (today + timedelta(days=1)).strftime("%A %B %d")
     #Se formatea el día de hoy a formato Día Mes númerodedía
     todayFormated = today.strftime("%A %B %d")
+    tomorrowFormated = (today + timedelta(days=1)).strftime("%A %B X%d").replace('X0','X').replace('X','')
     #Se hace un formato Mes_dd_aaaa
     formatDateOutput = today.strftime("%b_%d_%Y")
+    formatDateTomorrowOutput = (today + timedelta(days=1)).strftime("%b_%d_%Y")
 
     def __init__(self, url, data_dir):
         self._url = url
@@ -29,19 +31,21 @@ class schedule_scrapping:
             #Se filtran los tags que sean p
             paragraphs = soup.find_all('p')
             #Se busca el tag p que corresponda al día de hoy
-            paragraphToday = soup.find('p', text=self.todayFormated)
+            paragraphToday = soup.find('p', text=self.tomorrowFormated)
             #Se saca el index del tag del día de hoy
             indexData = paragraphs.index(paragraphToday)
             #Se toma el texto en el index del texto + una posición para obtener los datos del calendario
             scheduleData = paragraphs[indexData+1].getText()
             #Se hace el procesamiento de los datos
             scheduleList = self.process_Data_Schedule(scheduleData)
+            print(scheduleList)
             #Se crea el archivo .json 
-            with open(f'{self._data_dir}data_schedule_{self.formatDateOutput}.json', 'w') as fd:
+            with open(f'{self._data_dir}data_schedule_{self.formatDateTomorrowOutput}.json', 'w') as fd:
                 json_object = json.dumps(scheduleList, indent=4)
                 fd.write(json_object)
-                print('Json de la fecha ', self.formatDateOutput, ' generado')
+                print('Json de la fecha ', self.formatDateTomorrowOutput, ' generado')
         except:
+            print("Not matches scheduled for", self.tomorrowFormated)
             pass
 
     def process_Data_Schedule(self, scheduleData):
