@@ -38,8 +38,7 @@ class schedule_scrapping:
             scheduleList = self.process_Data_Schedule(scheduleData)
             #Se crea el archivo .json 
             with open(f'{self._data_dir}data_schedule_{self.formatDateOutput}.json', 'w') as fd:
-                json_object = json.dumps(scheduleList)
-                print(json_object)
+                json_object = json.dumps(scheduleList, indent=4)
                 fd.write(json_object)
                 print('Json de la fecha ', self.formatDateOutput, ' generado')
         except:

@@ -1,1 +1,18 @@
-[{"name": "Group D: Australia vs Denmark (Al Janoub Stadium, Al Wakrah)", "hour": "10:00"}, {"name": "Group D: Tunisia vs France (Education City Stadium, Al Rayyan)", "hour": "10:00"}, {"name": "Group C: Poland vs Argentina (Stadium 974, Doha)", "hour": "14:00"}, {"name": "Group C: Saudi Arabia vs Mexico (Lusail Iconic Stadium, Lusail)", "hour": "14:00"}]
+[
+    {
+        "name": "Group D: Australia vs Denmark (Al Janoub Stadium, Al Wakrah)",
+        "hour": "10:00"
+    },
+    {
+        "name": "Group D: Tunisia vs France (Education City Stadium, Al Rayyan)",
+        "hour": "10:00"
+    },
+    {
+        "name": "Group C: Poland vs Argentina (Stadium 974, Doha)",
+        "hour": "14:00"
+    },
+    {
+        "name": "Group C: Saudi Arabia vs Mexico (Lusail Iconic Stadium, Lusail)",
+        "hour": "14:00"
+    }
+]
