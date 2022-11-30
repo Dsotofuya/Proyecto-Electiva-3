@@ -37,7 +37,7 @@ class schedule_scrapping:
             #Se hace el procesamiento de los datos
             scheduleList = self.process_Data_Schedule(scheduleData)
             #Se crea el archivo .json 
-            with open(f'{self._data_dir}data_{self.formatDateOutput}.json', 'w') as fd:
+            with open(f'{self._data_dir}data_schedule_{self.formatDateOutput}.json', 'w') as fd:
                 json_object = json.dumps(scheduleList)
                 print(json_object)
                 fd.write(json_object)
@@ -80,7 +80,7 @@ class schedule_scrapping:
 
 if __name__ == '__main__':
     url = 'https://www.skysports.com/football/news/12098/12354033/world-cup-2022-dates-draw-schedule-kick-off-times-final-for-qatar-tournament'
-    data_dir = 'data/'
+    data_dir = 'data schedule/'
     sc = schedule_scrapping(url, data_dir)
     sc.get_schedule()
     #sc.format_hour('7pm')
