@@ -87,4 +87,4 @@ if __name__ == '__main__':
     data_dir = 'data schedule/'
     sc = schedule_scrapping(url, data_dir)
     sc.get_schedule()
-    #sc.format_hour('7pm')
+    #sc.format_hour('7pm') 
