@@ -23,7 +23,7 @@ class schedule_scrapping:
         self._data_dir = data_dir
 
     def get_schedule(self):
-        """Getting the schedule for today"""
+        """Getting the schedule for tomorrow"""
         page = requests.get(self._url)
         soup = BeautifulSoup(page.content, 'html.parser')
         try:
@@ -32,9 +32,9 @@ class schedule_scrapping:
                                                               #text=True , recursive=True 
             #Se filtran los tags que sean p
             paragraphs = soup.find_all('p')
-            #Se busca el tag p que corresponda al día de hoy
+            #Se busca el tag p que corresponda al día de mañana
             paragraphToday = soup.find('p', text=self.tomorrowFormated)
-            #Se saca el index del tag del día de hoy
+            #Se saca el index del tag del día de de mañana
             indexData = paragraphs.index(paragraphToday)
             #Se toma el texto en el index del texto + una posición para obtener los datos del calendario
             scheduleData = paragraphs[indexData+1].getText()
