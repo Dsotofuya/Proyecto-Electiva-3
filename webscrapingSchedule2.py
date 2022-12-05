@@ -32,11 +32,14 @@ class schedule_scrapping:
                     if(day.find('div', class_='date').get_text()[:2] == self.tomorrow):
                         #Se hace el procesamiento de los datos
                         scheduleList = self.process_Data_Schedule(day)
-                        #Se crea el archivo .json 
-                        with open(f'{self._data_dir}data_schedule_{self.formatDateTomorrowOutput}.json', 'w') as fd:
-                            json_object = json.dumps(scheduleList, indent=4)
-                            fd.write(json_object)
-                            print('Json de la fecha ', self.formatDateTomorrowOutput, ' generado')
+                        if scheduleList == []:
+                            print('Break Day - Not matches scheduled')
+                        else: 
+                            #Se crea el archivo .json 
+                            with open(f'{self._data_dir}data_schedule_{self.formatDateTomorrowOutput}.json', 'w') as fd:
+                                json_object = json.dumps(scheduleList, indent=4)
+                                fd.write(json_object)
+                                print('Json de la fecha ', self.formatDateTomorrowOutput, ' generado')
             else:
                 print("The word coup has ended")
         except:
