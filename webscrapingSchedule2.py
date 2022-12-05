@@ -32,6 +32,7 @@ class schedule_scrapping:
                     if(day.find('div', class_='date').get_text()[:2] == self.tomorrow):
                         #Se hace el procesamiento de los datos
                         scheduleList = self.process_Data_Schedule(day)
+                        #Se valida que no sea un día de descanso
                         if scheduleList == []:
                             print('Break Day - Not matches scheduled')
                         else: 
