@@ -10,7 +10,7 @@ class data_scrapping:
     #Se formatea el día de hoy a formato númerodedía
     todayFormated = today.strftime("%d")
     #Se hace un formato Mes_dd_aaaa_hh:mm
-    formatDateOutput = today.strftime("%b_%d_%Y_%H:%M")
+    formatDateOutput = today.strftime("%b_%d_%Y_%H_%M")
 
     def __init__(self, url, data_dir):
         self._url = url
@@ -30,16 +30,16 @@ class data_scrapping:
                         #Se hace el procesamiento de los datos
                         datadict = self.get_Data(day, '10:00')
                         #Se valida que no sea un día de descanso
-                        #if datadict == {}:
-                        #    print('Break Day - Not matches scheduled')
-                        #else: 
-                            #Se crea el archivo .json 
-                        #    with open(f'{self._data_dir}data_match_{datadict["local"]}_{datadict["visitante"]}_{self.formatDateOutput}.json', 'w') as fd:
-                        #        json_object = json.dumps(scheduleList, indent=4)
-                        #        fd.write(json_object)
-                        #        print('Json del encuentro ', {datadict["local"]}, ' vs ', {datadict["visitante"]}, ' generado')
-           # else:
-            #    print("The word coup has ended")
+                        if datadict == {}:
+                            print('Break Day - Not matches scheduled')
+                        else: 
+                        #Se crea el archivo .json 
+                            with open(f'{self._data_dir}data_match_{datadict["local"]}_vs_{datadict["visitante"]}_{self.formatDateOutput}.json', 'w') as fd:
+                                json_object = json.dumps(datadict, indent=4)
+                                fd.write(json_object)
+                                print('Json del encuentro ', datadict["local"], ' vs ', datadict["visitante"], ' generado')
+            else:
+               print("The word coup has ended")
         except:
             pass
 
@@ -59,14 +59,60 @@ class data_scrapping:
     def scrap_statistics(self, url):
         page = requests.get(url)
         soup = BeautifulSoup(page.content, 'html.parser')
-        link_lineups = 'https://resultados.as.com/' + soup.find('a', {'data-item':'lineups'})['href']
         link_stats = 'https://resultados.as.com/' + soup.find('a', {'data-item':'stats'})['href']
         try:
-            print(link_lineups)
-            print(link_stats)
+            lineups = requests.get('https://resultados.as.com/' + soup.find('a', {'data-item':'lineups'})['href'])
+            lineups_soup = BeautifulSoup(lineups.content, 'html.parser')
+            teams_names = lineups_soup.find_all('span', class_='large')
+            scorers = lineups_soup.find_all('div', class_='scorers')
+            scores = lineups_soup.find_all('span', class_='team-score')
+            penals = lineups_soup.find_all('sub', class_='penal')
+            lineups_local = lineups_soup.find_all('ul', class_='team-lup')[1]
+            lineups_visitor = lineups_soup.find_all('ul', class_='team-lup')[3]
+            data_dict = {
+                'local': teams_names[0].text,
+                #'entrenador_local': (trainers.find_all('span', class_='in-pla-name').text)[0], 
+                #alineacion_local:
+                #jugadores_local:
+                #posesion_local
+                #disparos_recibidos
+                #tarjetas_amarillas_local
+                #tarjetas_rojas_local
+                #faltas_recibidas
+                #faltas_cometidas
+                #perdidas_posesion
+                #recuperaciones_posesion
+                #fueras_juego
+                #remates_fuera
+                #remates_dentro
+                #disparos_bloqueados
+                'anotadores_local': (scorers[0].get_text()).replace('\n',''),
+                'goles_local': (scores[0].text)[0], 
+                'goles_def_penal_local': penals[0].text,
+                'visitante': teams_names[1].text,
+                #'entrenador_visitante': (trainers.find_all('span', class_='in-pla-name').text)[1],
+                #alineacion_visitante:
+                #jugadores_visitante:
+                #posesion_local
+                #disparos_recibidos
+                #tarjetas_amarillas_local
+                #tarjetas_rojas_local
+                #faltas_recibidas
+                #faltas_cometidas
+                #perdidas_posesion
+                #recuperaciones_posesion
+                #fueras_juego
+                #remates_fuera
+                #remates_dentro
+                #disparos_bloqueados
+                'anotadores_visitante': scorers[1].get_text().replace('\n',''),
+                'goles_visitante':(scores[1].text)[0],
+                'goles_def_penal_visitante': penals[1].text,
+            }
+            return data_dict
         except:
             pass
-#matchDict = { 'name': (match.find('p', class_='grupo')['title']).replace('-', 'vs'), 'hour':  }
+
 if __name__ == '__main__':
     url = 'https://colombia.as.com/resultados/futbol/mundial/calendario/dias/'
     data_dir = 'data/matchs/'
