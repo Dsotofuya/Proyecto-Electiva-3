@@ -78,21 +78,22 @@ class data_scrapping:
             teams_names = lineups_soup.find_all('span', class_='large')
             scorers = lineups_soup.find_all('div', class_='scorers')
             scores = lineups_soup.find_all('span', class_='team-score')
+            lineups_local_principal = lineups_soup.find_all('ul', class_='team-lup')[0]
             lineups_local = lineups_soup.find_all('ul', class_='team-lup')[1]
+            lineups_visitor_principal = lineups_soup.find_all('ul', class_='team-lup')[2]
             lineups_visitor = lineups_soup.find_all('ul', class_='team-lup')[3]
             alings = stats_soup.find_all('div', class_='Opta-TeamFormation')
             posetion = stats_soup.find_all('span', class_='stat-val')
             penals = soup.find_all('p', class_='ki')
-            
             data_dict = {
                 'local': teams_names[0].text, 
-                'alineacion_local': self.process_team_lineup(lineups_local),
+                'alineacion_local': self.process_team_lineup(lineups_local, lineups_local_principal),
                 'posesion_local': posetion[0].text,
                 'anotadores_local': self.validate_scorers(scorers[0]),
                 'goles_local': (scores[0].text)[0], 
                 'goles_def_penal_local': penal_local,
                 'visitante': teams_names[1].text,
-                'alineacion_visitante': self.process_team_lineup(lineups_visitor),
+                'alineacion_visitante': self.process_team_lineup(lineups_visitor, lineups_visitor_principal),
                 'posesion_visitante': posetion[1].text,
                 'anotadores_visitante': self.validate_scorers(scorers[1]),
                 'goles_visitante':(scores[1].text)[0],
@@ -110,7 +111,7 @@ class data_scrapping:
         else:
             return (scorers.get_text()).replace('\n','')
 
-    def process_team_lineup(self, lineups):
+    def process_team_lineup(self, lineups, lineups_principal):
         players = []
         position = []
         linupDict = {}
@@ -120,6 +121,9 @@ class data_scrapping:
                         if((player.get_text()).split('\n')[1] == 'ent'):
                             linupDict['alineacion'] = (player.get_text()).split('\n')[3]
                         linupDict[(player.get_text()).split('\n')[1]] = (player.get_text()).split('\n')[2]
+        for player_principal in lineups_principal:
+            if ((player_principal.get_text()).replace('\n','') != '' and (player_principal.get_text()).replace('\n','') != 'PORTERO' and (player_principal.get_text()).replace('\n','') != 'DEFENSA' and (player_principal.get_text()).replace('\n','') != 'CENTROCAMPISTA' and (player_principal.get_text()).replace('\n','') != 'DELANTERO'):
+                linupDict[(player_principal.get_text()).split('\n')[1]] = (player_principal.get_text()).split('\n')[2]
         return linupDict
 
     def process_extra_data(self, data_extra):
