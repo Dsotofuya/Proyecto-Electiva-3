@@ -1,0 +1,18 @@
+[
+    {
+        "name_local": "Marruecos",
+        "score_local": "0",
+        "score_penal_local": "3",
+        "name_visitor": "Espa\u00f1a",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Portugal",
+        "score_local": "6",
+        "score_penal_local": "0",
+        "name_visitor": "Suiza",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    }
+]

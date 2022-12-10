@@ -1,0 +1,34 @@
+[
+    {
+        "name_local": "Argentina",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Arabia Saud\u00ed",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Dinamarca",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "T\u00fanez",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "M\u00e9xico",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "Polonia",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Francia",
+        "score_local": "4",
+        "score_penal_local": "0",
+        "name_visitor": "Australia",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    }
+]

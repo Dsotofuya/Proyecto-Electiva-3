@@ -1,0 +1,34 @@
+[
+    {
+        "name_local": "Suiza",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Camer\u00fan",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Uruguay",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "Corea del Sur",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Portugal",
+        "score_local": "3",
+        "score_penal_local": "0",
+        "name_visitor": "Ghana",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Brasil",
+        "score_local": "2",
+        "score_penal_local": "0",
+        "name_visitor": "Serbia",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    }
+]

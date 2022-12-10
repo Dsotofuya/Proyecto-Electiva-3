@@ -1,0 +1,18 @@
+[
+    {
+        "name_local": "Francia",
+        "score_local": "3",
+        "score_penal_local": "0",
+        "name_visitor": "Polonia",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Inglaterra",
+        "score_local": "3",
+        "score_penal_local": "0",
+        "name_visitor": "Senegal",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    }
+]

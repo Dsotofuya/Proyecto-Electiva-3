@@ -1,0 +1,18 @@
+[
+    {
+        "name_local": "Croacia",
+        "score_local": "1",
+        "score_penal_local": "4",
+        "name_visitor": "Brasil",
+        "score_visitor": "1",
+        "score_penal_visitor": "2"
+    },
+    {
+        "name_local": "Pa\u00edses Bajos",
+        "score_local": "2",
+        "score_penal_local": "3",
+        "name_visitor": "Argentina",
+        "score_visitor": "2",
+        "score_penal_visitor": "4"
+    }
+]

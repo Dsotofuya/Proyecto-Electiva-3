@@ -1,0 +1,34 @@
+[
+    {
+        "name_local": "Gales",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "Ir\u00e1n",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Qatar",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Senegal",
+        "score_visitor": "3",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Pa\u00edses Bajos",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Ecuador",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Inglaterra",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "USA",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    }
+]

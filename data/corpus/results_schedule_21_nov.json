@@ -1,0 +1,26 @@
+[
+    {
+        "name_local": "Inglaterra",
+        "score_local": "6",
+        "score_penal_local": "0",
+        "name_visitor": "Ir\u00e1n",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Senegal",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "Pa\u00edses Bajos",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "USA",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Gales",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "name_local": "Canad\u00e1",
+        "score_local": "1",
+        "score_penal_local": "0",
+        "name_visitor": "Marruecos",
+        "score_visitor": "2",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Croacia",
+        "score_local": "0",
+        "score_penal_local": "0",
+        "name_visitor": "B\u00e9lgica",
+        "score_visitor": "0",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Costa Rica",
+        "score_local": "2",
+        "score_penal_local": "0",
+        "name_visitor": "Alemania",
+        "score_visitor": "4",
+        "score_penal_visitor": "0"
+    },
+    {
+        "name_local": "Jap\u00f3n",
+        "score_local": "2",
+        "score_penal_local": "0",
+        "name_visitor": "Espa\u00f1a",
+        "score_visitor": "1",
+        "score_penal_visitor": "0"
+    }
+]
